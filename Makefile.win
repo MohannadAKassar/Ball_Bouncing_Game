@@ -1,0 +1,55 @@
+# Project: BallBouncing
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = /obj/main.o /obj/world.o /obj/object.o /obj/circle.o /obj/line.o /obj/tools.o /obj/vector2.o /obj/block.o /obj/platform.o /obj/counterblock.o
+LINKOBJ  = /obj/main.o /obj/world.o /obj/object.o /obj/circle.o /obj/line.o /obj/tools.o /obj/vector2.o /obj/block.o /obj/platform.o /obj/counterblock.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lopengl32 -lfreeglut -lglu32 -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = BallBouncing.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+/obj/main.o: main.cpp
+	$(CPP) -c main.cpp -o /obj/main.o $(CXXFLAGS)
+
+/obj/world.o: world.cpp
+	$(CPP) -c world.cpp -o /obj/world.o $(CXXFLAGS)
+
+/obj/object.o: object.cpp
+	$(CPP) -c object.cpp -o /obj/object.o $(CXXFLAGS)
+
+/obj/circle.o: circle.cpp
+	$(CPP) -c circle.cpp -o /obj/circle.o $(CXXFLAGS)
+
+/obj/line.o: line.cpp
+	$(CPP) -c line.cpp -o /obj/line.o $(CXXFLAGS)
+
+/obj/tools.o: tools.cpp
+	$(CPP) -c tools.cpp -o /obj/tools.o $(CXXFLAGS)
+
+/obj/vector2.o: vector2.cpp
+	$(CPP) -c vector2.cpp -o /obj/vector2.o $(CXXFLAGS)
+
+/obj/block.o: block.cpp
+	$(CPP) -c block.cpp -o /obj/block.o $(CXXFLAGS)
+
+/obj/platform.o: platform.cpp
+	$(CPP) -c platform.cpp -o /obj/platform.o $(CXXFLAGS)
+
+/obj/counterblock.o: counterblock.cpp
+	$(CPP) -c counterblock.cpp -o /obj/counterblock.o $(CXXFLAGS)
